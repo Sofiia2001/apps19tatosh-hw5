@@ -14,14 +14,13 @@ public class StreamApp {
         return res;
     }
 
-    public static int[] streamToArray(IntStream intStream) {        
-        int[] intArr = intStream.toArray();
-        return intArr;
+    public static int[] streamToArray(IntStream intStream) {
+        return intStream.toArray();
     }
 
     public static String streamForEach(IntStream intStream) {        
         StringBuilder str = new StringBuilder();
-        intStream.forEach(x -> str.append(x));
+        intStream.forEach(str::append);
         return str.toString();
     }
 }

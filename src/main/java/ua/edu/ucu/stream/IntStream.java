@@ -3,7 +3,6 @@ package ua.edu.ucu.stream;
 import ua.edu.ucu.function.*;
 
 public interface IntStream {
-
     Double average();
 
     Integer max();
@@ -25,4 +24,6 @@ public interface IntStream {
     Integer sum();
 
     int[] toArray();
+
+    Integer[] arr();
 }
