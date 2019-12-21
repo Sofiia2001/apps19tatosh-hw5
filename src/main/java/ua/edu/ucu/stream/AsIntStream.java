@@ -8,9 +8,10 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class AsIntStream implements IntStream {
-    StreamIterator it;
+    private StreamIterator it;
 
-    private AsIntStream() {}
+    private AsIntStream() {
+    }
 
     private AsIntStream(StreamIterator iterator) {
         this();
@@ -49,7 +50,8 @@ public class AsIntStream implements IntStream {
     @Override
     public Double average() {
         checkIfEmpty();
-        Double sum = 0.0; int length = 0;
+        Double sum = 0.0;
+        int length = 0;
         while (it.hasNext()) {
             sum += it.next();
             length += 1;
@@ -154,9 +156,11 @@ public class AsIntStream implements IntStream {
             public void streamNext() {
                 Integer[] general = new Integer[0];
                 while (next < arr.length) {
-                    Integer[] array = func.applyAsIntStream(stream.get(next)).arr();
+                    Integer[] array =
+                            func.applyAsIntStream(stream.get(next)).arr();
                     int j = general.length;
-                    general = Arrays.copyOf(general, array.length + general.length);
+                    general = Arrays.copyOf(general,
+                            array.length + general.length);
                     int index = 0;
                     for (int i = j; i < general.length; i++) {
                         general[i] = array[index];

@@ -17,7 +17,7 @@ public class StreamIterator implements Iterator<Integer> {
 
     @Override
     public boolean hasNext() {
-        return (next != stream.size() && stream.get(next) != null);
+        return next != stream.size() && stream.get(next) != null;
     }
 
     @Override

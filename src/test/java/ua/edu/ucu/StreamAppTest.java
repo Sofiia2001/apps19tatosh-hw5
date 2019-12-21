@@ -2,13 +2,14 @@ package ua.edu.ucu;
 
 import ua.edu.ucu.stream.*;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
+
 import org.junit.Before;
 
 import java.util.NoSuchElementException;
 
 /**
- *
  * @author andrii
  */
 public class StreamAppTest {

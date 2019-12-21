@@ -1,11 +1,13 @@
 package ua.edu.ucu;
 
-        import ua.edu.ucu.stream.*;
-        import org.junit.Test;
-        import static org.junit.Assert.*;
-        import org.junit.Before;
+import ua.edu.ucu.stream.*;
+import org.junit.Test;
 
-        import java.util.NoSuchElementException;
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+
+import java.util.NoSuchElementException;
 
 
 public class AsIntStreamTest {
@@ -24,7 +26,8 @@ public class AsIntStreamTest {
         int val = intStream
                 .filter(x -> x > 1) //[2, 3, 4]
                 .map(x -> x * 2) //[4, 6, 8]
-                .flatMap(x -> AsIntStream.of(x - 1, x, x + 100))  //[3, 4, 104, 5, 6, 106, 7, 8, 108]
+                .flatMap(x -> AsIntStream.of(x - 1, x, x + 100))
+                //[3, 4, 104, 5, 6, 106, 7, 8, 108]
                 .reduce(10, (sum, x) -> sum += x); // 361
 
         assertEquals(expRes, val);
@@ -32,7 +35,7 @@ public class AsIntStreamTest {
 
     @Test
     public void testFilterWithNoSuitableElements() {
-        assertArrayEquals(intStream.filter(x -> x > 100).toArray(), new int[] {});
+        assertArrayEquals(intStream.filter(x -> x > 100).toArray(), new int[]{});
     }
 
     @Test
